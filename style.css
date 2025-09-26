@@ -1,0 +1,215 @@
+/* --- Global Styles and Dark Mode Colors --- */
+:root {
+    /* Dark Mode Palette */
+    --background-color: #1a1a2e; /* Dark Blue/Purple */
+    --surface-color: #2c2c47; /* Slightly lighter surface for cards/containers */
+    --text-color: #e0e0f0; /* Light text for contrast */
+    --primary-color: #5d5d9c; /* Purple/Blue for buttons and accents */
+    --secondary-color: #8c8cd9; /* Lighter accent color */
+    --border-color: #44446e; /* Subtle border color */
+    
+    /* Status Light Colors */
+    --active-status: #4CAF50; /* Green */
+    --focused-status: #FFC107; /* Yellow/Amber */
+    --break-status: #F44336; /* Red */
+}
+
+/* Base Body Styles */
+body.dark-mode {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start elements from the top */
+    min-height: 100vh;
+}
+
+h1, h2 {
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+/* --- Layout: Login Screen & Main App --- */
+
+/* Central content for the login screen */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    margin-top: 100px;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Two-Column Layout */
+.main-layout {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 95vh;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden; /* Keeps borders clean */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    background-color: var(--surface-color);
+}
+
+/* Left Column: Timer Area (25% width) */
+.timer-area {
+    flex: 0 0 28%; /* Fixed width for timer/user list */
+    padding: 20px;
+    border-right: 1px solid var(--border-color);
+    background-color: #24243f; /* Slightly darker surface for the sidebar */
+}
+
+/* Right Column: Chat Area (72% width) */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* --- Form and Input Styling --- */
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box; /* Include padding in element's total width/height */
+    resize: none; /* Prevent manual resizing of textarea */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Timer Specific Styles --- */
+.timer-display {
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--secondary-color); /* Use accent color */
+    letter-spacing: 2px;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+/* --- User List and Status Lights --- */
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-item {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.status-light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Status light colors defined in Q13 */
+.status-light.active {
+    background-color: var(--active-status);
+    box-shadow: 0 0 5px var(--active-status);
+}
+.status-light.focused {
+    background-color: var(--focused-status);
+    box-shadow: 0 0 5px var(--focused-status);
+}
+.status-light.break {
+    background-color: var(--break-status);
+    box-shadow: 0 0 5px var(--break-status);
+}
+
+
+/* --- Chat Area Specific Styles --- */
+.messages-container {
+    flex-grow: 1; /* Takes up all available space */
+    overflow-y: auto; /* Scrollable chat feed */
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: var(--background-color);
+}
+
+.message-item {
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1.5;
+    background-color: var(--surface-color);
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+.message-sender {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+.system-message {
+    font-style: italic;
+    color: #999;
+    background-color: #1f1f3a;
+    text-align: center;
+}
+
+/* Message Input Form */
+.message-input-form {
+    display: flex;
+    gap: 10px;
+}
+
+.message-input-form textarea {
+    flex-grow: 1;
+    margin-bottom: 0; /* Remove default margin */
+    height: 60px; /* Fixed height for typing */
+    padding: 8px;
+}

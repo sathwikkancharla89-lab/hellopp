@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hellopp - Focused Student Connect</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body class="dark-mode">
+    
+    <div id="login-screen" class="container center-content">
+        <h1>Welcome to Hellopp!</h1>
+        <p>Connect with peers for a focused study session.</p>
+        <form id="nickname-form">
+            <input type="text" id="nickname-input" placeholder="Enter your Nickname (e.g., CodeMaster)" maxlength="100" required>
+            <button type="submit">Start Focus Session</button>
+        </form>
+    </div>
+
+    <div id="app-container" style="display:none;" class="main-layout">
+        
+        <aside class="timer-area">
+            <h2>Hellopp Timer</h2>
+            <div id="timer-display" class="timer-display">25:00</div>
+            <p id="focus-message">Ready for a focused 25-minute work block.</p>
+            <div class="timer-controls">
+                <button id="start-btn" class="timer-btn">Start Focus</button>
+                <button id="reset-btn" class="timer-btn">Reset</button>
+            </div>
+            
+            <hr>
+
+            <h2>Online Students</h2>
+            <ul id="online-users-list" class="user-list">
+                <li class="user-item"><span class="status-light focused"></span> CodeMaster</li>
+                <li class="user-item"><span class="status-light active"></span> MathWhiz</li>
+            </ul>
+        </aside>
+
+        <main class="chat-area">
+            <h2>Focused Chat Room</h2>
+            <div id="messages-container" class="messages-container">
+                <div class="message-item system-message">
+                    <span class="message-sender">System Bot:</span> 
+                    Welcome! Remember your 500-char limit for focused discussion.
+                </div>
+            </div>
+
+            <form id="message-form" class="message-input-form">
+                <textarea id="message-input" placeholder="Type a focused message (Max 500 chars)" maxlength="500" required></textarea>
+                <button type="submit" id="send-btn">Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="script.js"></script> 
+
+</body>
+</html>
